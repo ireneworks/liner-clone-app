@@ -1,0 +1,111 @@
+@import "../style/colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto&display=swap");
+
+.header-wrapper {
+  display: flex;
+  width: 1280px;
+  height: 64px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  z-index: 900;
+  .logo {
+    margin: 0 100px 0 0;
+    padding: 0;
+  }
+  .text-input-field-wrapper {
+    .text-input-field {
+      position: relative;
+      box-sizing: border-box;
+      width: 680px;
+      height: 40px;
+      margin: 0;
+      padding: 10px 40px 10px 16px;
+      background: $gray;
+      border-radius: 8px;
+
+      input {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+          sans-serif;
+        font-size: 16px;
+        color: $gray900;
+        line-height: normal;
+        letter-spacing: normal;
+      }
+
+      img {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+      }
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    button {
+      margin: 0;
+      height: 100%;
+      border-radius: 8px;
+      padding: 8px 20px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.35px;
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+        sans-serif;
+    }
+    .sign-in-button {
+      margin: 0 12px 0 0;
+      background-color: $white;
+      color: $brand;
+    }
+    .sign-in-button:hover {
+      background: $brand200;
+    }
+    .sign-up-button {
+      background-color: $brand;
+      color: $white;
+    }
+    .sign-up-button:hover {
+      background: $brand800;
+    }
+  }
+  .button-wrapper:last-of-type {
+    margin-left: auto;
+  }
+
+  @media all and (max-width: 1439px) {
+    /* Tablet 스타일 추가 */
+    display: none;
+  }
+
+  @media all and (max-width: 719px) {
+    /* Mobile 스타일 추가 */
+    #header .search-form {
+      display: none;
+    }
+  }
+}
+
+.header-background-dim {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 50;
+}
