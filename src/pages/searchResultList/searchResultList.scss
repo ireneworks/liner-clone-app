@@ -1,2 +1,71 @@
 @import "../../../src/components/style/colors.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto&display=swap");
+
+.search-result-header {
+  h3 {
+    margin-top: 31px;
+    padding: 0;
+    font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -.8px;
+    color: $black;
+  }
+  p {
+    margin: 16px 0 15px;
+    padding: 0;
+    font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -.35px;
+    color: $gray600;
+  }
+}
+
+.feed-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 26px 0;
+  border-bottom: 1px solid $gray;
+  .feed-content {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    font-family: "Roboto","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+
+    h4 {
+      display: -webkit-box;
+      width: 100%;
+      max-height: 52px;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+      letter-spacing: normal;
+      word-break: keep-all;
+      text-overflow: ellipsis;
+    }
+    p {
+      padding: 0;
+      margin: 8px 0 0;
+      max-height: 100px;
+      overflow: hidden;
+      color: #555;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: normal;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      overflow-wrap: break-word;
+    }
+  }
+}

@@ -85,17 +85,17 @@
     margin-left: auto;
   }
 
-  @media all and (max-width: 1439px) {
-    /* Tablet 스타일 추가 */
-    display: none;
-  }
-
-  @media all and (max-width: 719px) {
-    /* Mobile 스타일 추가 */
-    #header .search-form {
-      display: none;
-    }
-  }
+  //@media all and (max-width: 1439px) {
+  //  /* Tablet 스타일 추가 */
+  //  display: none;
+  //}
+  //
+  //@media all and (max-width: 719px) {
+  //  /* Mobile 스타일 추가 */
+  //  #header .search-form {
+  //    display: none;
+  //  }
+  //}
 }
 
 .header-background-dim {
