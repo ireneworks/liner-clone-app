@@ -1,18 +1,16 @@
-@import "../style/colors.scss";
+@import "src/components/commonStyle/colors";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto&display=swap");
 
 .header-wrapper {
   display: flex;
-  width: 1280px;
+  width: 100%;
   height: 64px;
   margin: 0;
   align-items: center;
-  justify-content: center;
   background: $white;
-  z-index: 900;
+  z-index: 50;
   .logo {
-    margin: 0 100px 0 0;
+    margin: 0 115px 0 0;
     padding: 0;
   }
   .text-input-field-wrapper {
@@ -23,27 +21,30 @@
       height: 40px;
       margin: 0;
       padding: 10px 40px 10px 16px;
-      background: $gray;
+      background: $gray100;
       border-radius: 8px;
-
       input {
         width: 100%;
         height: 100%;
+        padding: 0;
         background: none;
         border: none;
         outline: none;
         font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
           sans-serif;
         font-size: 16px;
-        color: $gray900;
+        color: $gray800;
         line-height: normal;
         letter-spacing: normal;
       }
-
-      img {
+      button {
         position: absolute;
         top: 8px;
         right: 16px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
       }
     }
   }
@@ -68,35 +69,47 @@
     .sign-in-button {
       margin: 0 12px 0 0;
       background-color: $white;
-      color: $brand;
+      color: $cyan700;
     }
     .sign-in-button:hover {
-      background: $brand200;
+      background: $cyan200;
     }
     .sign-up-button {
-      background-color: $brand;
+      background-color: $cyan700;
       color: $white;
     }
     .sign-up-button:hover {
-      background: $brand800;
+      background: $cyan800;
     }
   }
   .button-wrapper:last-of-type {
     margin-left: auto;
   }
-
-  //@media all and (max-width: 1439px) {
-  //  /* Tablet 스타일 추가 */
-  //  display: none;
-  //}
-  //
-  //@media all and (max-width: 719px) {
-  //  /* Mobile 스타일 추가 */
-  //  #header .search-form {
-  //    display: none;
-  //  }
-  //}
 }
+
+/* Tablet Device */
+@media screen and (min-width: 1040px) and (max-width: 1439px) {
+  .header-wrapper {
+    padding: 0 40px;
+    .logo {
+      margin: 0 40px 0 0;
+    }
+  }
+
+  .text-input-field-wrapper {
+    .text-input-field {
+      width: 458px;
+    }
+  }
+}
+
+/* Mobile Device */
+//@media all and (max-width: 719px) {
+//  /* Mobile 스타일 추가 */
+//  #header .search-form {
+//    display: none;
+//  }
+//}
 
 .header-background-dim {
   position: absolute;
@@ -107,5 +120,5 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 50;
+  z-index: 49;
 }

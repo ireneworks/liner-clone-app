@@ -1,0 +1,13 @@
+/* Desktop Device */
+.layout-wrapper {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+/* Tablet Device */
+@media screen and (min-width: 1040px) and (max-width: 1439px) {
+  .layout-wrapper {
+    width: 1024px;
+    margin: 0 auto;
+  }
+}

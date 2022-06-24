@@ -1,0 +1,40 @@
+@import "src/components/commonStyle/colors";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+.trend-keyword-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 20px;
+  margin: 0 0 16px;
+  background-color: $gray300;
+  border-radius: 8px;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  h2 {
+    margin: 0;
+    padding: 0 0 8px;
+    border-bottom: 1px solid $gray200;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.35px;
+    line-height: normal;
+    color: $gray500;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 0 0 -8px;
+    padding: 0px;
+    li {
+      margin: 16px 0 0;
+      padding: 4px 8px;
+      font-size: 14px;
+      letter-spacing: -0.35px;
+      font-weight: 500;
+      line-height: normal;
+      word-break: keep-all;
+      color: $gray900;
+    }
+  }
+}
