@@ -6,13 +6,11 @@ import Content from "./content/content";
 
 export default function Layout({ onSearch }) {
   return (
-    <div>
-      <div className="layout-wrapper">
-        <Header onSearch={onSearch} />
-        <Content>
-          <Outlet />
-        </Content>
-      </div>
+    <div className="layout-wrapper">
+      <Header onSearch={onSearch} />
+      <Content>
+        <Outlet />
+      </Content>
     </div>
   );
 }

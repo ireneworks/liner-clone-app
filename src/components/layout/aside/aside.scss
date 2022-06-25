@@ -1,5 +1,5 @@
-@import "src/components/commonStyle/colors";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import "src/styles/colors";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&wght@500&display=swap");
 
 .trend-keyword-wrapper {
   box-sizing: border-box;
@@ -26,7 +26,20 @@
     list-style: none;
     margin: 0 0 0 -8px;
     padding: 0px;
-    li {
+    p {
+      text-align: center;
+      margin: 40px auto;
+      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+        sans-serif;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      font-size: 14px;
+      letter-spacing: -0.35px;
+      color: #969aa2;
+    }
+    a {
       margin: 16px 0 0;
       padding: 4px 8px;
       font-size: 14px;
@@ -34,7 +47,13 @@
       font-weight: 500;
       line-height: normal;
       word-break: keep-all;
+      text-decoration: none;
       color: $gray900;
+    }
+    a:hover {
+      background-color: $gray100;
+      border-radius: 8px;
+      color: $cyan800;
     }
   }
 }

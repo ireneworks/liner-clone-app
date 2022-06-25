@@ -1,0 +1,179 @@
+@import "src/styles/colors";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap");
+
+.feed-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 26px 0;
+  border-bottom: 1px solid $gray100;
+  .feed-content {
+    display: flex;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+      sans-serif;
+    .feed-text {
+      width: 560px;
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+        sans-serif;
+      .feed-link {
+        text-decoration: none;
+        h4 {
+          display: -webkit-box;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          max-height: 52px;
+          color: $black200;
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 26px;
+          letter-spacing: normal;
+          word-break: keep-all;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow-wrap: break-word;
+          overflow: hidden;
+        }
+      }
+      .feed-link:hover {
+        opacity: 0.8;
+      }
+      p {
+        padding: 0;
+        margin: 8px 0 0;
+        max-height: 100px;
+        overflow: hidden;
+        color: $gray900;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: normal;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow-wrap: break-word;
+      }
+    }
+    .img-wrapper {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 0 0 24px;
+      padding: 0;
+      justify-content: flex-end;
+      .img-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          object-fit: cover;
+        }
+      }
+    }
+    .img-wrapper:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .feed-footer {
+    display: flex;
+    margin: 0;
+    padding: 16px 0 0;
+    align-items: center;
+    justify-content: space-between;
+    .feed-link {
+      display: flex;
+      align-items: center;
+      font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+        sans-serif;
+      color: $gray400;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: normal;
+      img {
+        padding: 0;
+        display: inline-block;
+        margin: 0 14px 0 0;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .right-side {
+      display: flex;
+      justify-content: flex-end;
+      transition: all 0.3s;
+      button {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        span {
+          display: none;
+          overflow: hidden;
+          white-space: nowrap;
+          position: absolute;
+          top: -8px;
+          left: 50%;
+          margin: 0;
+          padding: 2px 4px;
+          border-radius: 2px;
+          transform: translate(-50%, -50%);
+          font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+            sans-serif;
+          background-color: $gray600;
+          color: $white;
+          font-size: 11px;
+          line-height: normal;
+          letter-spacing: normal;
+          font-weight: 400;
+          word-break: keep-all;
+          flex-wrap: nowrap;
+          z-index: 12;
+        }
+      }
+      .bookmark-icon {
+        margin: 0 4px 0 0;
+        padding: 0;
+        background-image: url(../../../components/assets/icons/bookmark-btn.svg);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 24px 24px;
+      }
+      .share-icon {
+        margin: 0;
+        padding: 0;
+        background-image: url(../../../components/assets/icons/share-btn.svg);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 24px 24px;
+      }
+    }
+    button:hover {
+      background: $gray300;
+      border-radius: 23px;
+      span {
+        display: block;
+      }
+    }
+  }
+}

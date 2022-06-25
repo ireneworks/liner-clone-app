@@ -1,52 +1,66 @@
-import React from "react";
-import faviconIconPath from "../searchResultList/assests/default-favicon.svg";
-import defaultThumbnailImagePath from "../searchResultList/assests/default-thumb-0.svg";
-import "../searchResultList/searchResultList.scss";
-import { Link } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
+import fetchSearchResultApi from "../../api/searchResultApi";
+import SearchResultItem from "./components/searchResultItem";
+import { decodedString, encodedString } from "../../utilities/convertURI";
+import { isEmpty } from "../../utilities/typeGuard";
+import { isSuccess } from "../../utilities/httpValidation";
+import "./searchResultList.scss";
 
 export default function SearchResultList() {
+  const { searchQuery } = useParams();
+  const searchKeyword = decodedString(searchQuery);
+  const [items, setItems] = useState([]);
+  const [approxTrust, setApproxTrust] = useState(0);
+
+  const shownFoundedMessage = useMemo(() => {
+    return !!searchKeyword && !isEmpty(items);
+  }, [searchQuery, items]);
+
+  useEffect(() => {
+    (async function () {
+      try {
+        const response = await fetchSearchResultApi({
+          query: encodedString(searchQuery),
+        });
+        if (!isSuccess(response)) {
+          alert("잠시 후 다시 시도해주세요");
+          return;
+        }
+        setItems(response.data.items);
+        setApproxTrust(response.data.approx_trust);
+      } catch (e) {}
+    })();
+  }, [searchQuery]);
+
   return (
     <>
-      <div className="search-result-header">
-        <h3>We found Trusted Results!</h3>
-        <p>Trusted Results on '개발' from 40 people.</p>
-      </div>
-      <div className="feed-wrapper">
-        <div className="feed-content">
-          <div className="feed-text">
-            <Link to="/">
-              <h4>릴리, 'AI' 바이오로직과 1.21억弗 딜.."당뇨약 개발"</h4>
-            </Link>
-            <p>
-              머신러닝 통한 다중항원 특이적 항체 '멀티바디(Multibody)' 플랫폼
-              활용, 당뇨병 항체 치료제 발굴∙개발. 일라이릴리(Eli Lilly)가 AI
-              컴퓨팅을 ...
-            </p>
-          </div>
-          <div className="img-wrapper">
-            <Link to="/">
-              <img
-                alt="릴리, 'AI' 바이오로직과 1.21억弗 딜..당뇨약 개발"
-                src={defaultThumbnailImagePath}
-              />
-            </Link>
+      {isEmpty(items) && (
+        <div className="search-result-header">
+          <div className="search-no-result-container">
+            <p>No search result that meets LINER’s standard.</p>
           </div>
         </div>
-        <div className="feed-footer">
-          <Link to="/" className="feed-link">
-            <img alt="Favicon" src={faviconIconPath} />
-            <span>www.biospectator.com</span>
-          </Link>
-          <div className="right-icons">
-            <button>
-              <span>A</span>
-            </button>
-            <button>
-              <span>B</span>
-            </button>
-          </div>
+      )}
+      {shownFoundedMessage && (
+        <div className="search-result-header">
+          <h3>We found Trusted Results!</h3>
+          <p className="search-result-header-sub-text">
+            Trusted Results on '{searchKeyword}' from {approxTrust} people.
+          </p>
         </div>
-      </div>
+      )}
+      {items.map((item, index) => (
+        <SearchResultItem
+          key={index}
+          documentId={item.document_id}
+          title={item.title}
+          description={item.description}
+          faviconUrl={item.favicon_url}
+          imgUrl={item.image_url}
+          url={item.url}
+        />
+      ))}
     </>
   );
 }

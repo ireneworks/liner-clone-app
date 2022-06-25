@@ -1,4 +1,4 @@
-@import "src/components/commonStyle/colors";
+@import "src/styles/colors";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 .header-wrapper {
@@ -45,6 +45,7 @@
         padding: 0;
         border: none;
         background: none;
+        cursor: pointer;
       }
     }
   }
@@ -65,6 +66,7 @@
       letter-spacing: -0.35px;
       font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
         sans-serif;
+      cursor: pointer;
     }
     .sign-in-button {
       margin: 0 12px 0 0;
@@ -90,15 +92,14 @@
 /* Tablet Device */
 @media screen and (min-width: 1040px) and (max-width: 1439px) {
   .header-wrapper {
-    padding: 0 40px;
+    padding: 0;
     .logo {
       margin: 0 40px 0 0;
     }
-  }
-
-  .text-input-field-wrapper {
-    .text-input-field {
-      width: 458px;
+    .text-input-field-wrapper {
+      .text-input-field {
+        width: 458px;
+      }
     }
   }
 }
