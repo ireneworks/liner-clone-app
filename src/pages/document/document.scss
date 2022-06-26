@@ -51,6 +51,18 @@
       line-height: normal;
       letter-spacing: normal;
       color: $gray400;
+      a {
+        color: $gray400;
+        padding: 0;
+        margin: 0;
+        font-family: "Roboto","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: normal;
+        display: flex;
+        align-items: center;
+      }
       .favicon-icon {
         display: inline-block;
         width: 20px;
@@ -66,6 +78,54 @@
     width: 100%;
     margin: 0;
     padding: 32px 0 120px;
+    .highlight-section {
+      padding: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin: 0 0 16px;
+      font-family: "Montserrat","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+      color: $gray500;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: -.3px;
+      img {
+        margin-right: 6px;
+      }
+    }
+    .highlight-text-wrapper {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      div {
+        margin: 0;
+        padding: 0;
+        font-style: normal;
+        font-stretch: normal;
+        border-left: 4px solid $cyan300;
+        p {
+          padding: 0;
+          margin: 0 16px;
+          font-size: 16px;
+          display: block;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+          font-family: "Roboto","Noto Sans KR","Noto Sans JP","Noto Sans SC",sans-serif;
+          font-weight: 400;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.43;
+          letter-spacing: normal;
+          color: $gray900;
+          word-wrap: break-word;
+          background-color: transparent;
+        }
+      }
+    }
     a {
       display: flex;
       width: 100%;
@@ -87,9 +147,28 @@
       color: $gray400;
       font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
         sans-serif;
+      text-decoration: none;
     }
-    button:hover {
+    a:hover {
       background-color: $gray300;
+    }
+    .information {
+      > div {
+        display: flex;
+        margin-top: 10px;
+        &:nth-of-type(1) {
+          martin-top: 0;
+        }
+        strong {
+          flex: 0 0 114px;
+          font-size: 14px;
+          color: $gray500;
+          font-weight: 700;
+        }
+        p {
+          margin: 0;
+        }
+      }
     }
   }
 }

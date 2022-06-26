@@ -89,7 +89,7 @@
   .button-wrapper:last-of-type {
     margin-left: auto;
   }
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: $narrow_pc) {
     .logo {
       margin: 0 40px 0 0;
     }
@@ -97,6 +97,11 @@
       .text-input-field {
         width: 458px;
       }
+    }
+  }
+  @media screen and (max-width: $tablet) {
+    .text-input-field-wrapper {
+      display: none;
     }
   }
   @media only screen and (max-width: $mobile) {

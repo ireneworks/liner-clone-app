@@ -4,12 +4,16 @@
   box-sizing: border-box;
   width: 1280px;
   margin: 0 auto;
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: $narrow_pc) {
     width: 1024px;
     padding: 0 40px;
   }
-  @media only screen and (max-width: $mobile) {
+  @media screen and (max-width: $tablet) {
     width: 704px;
+  }
+  @media only screen and (max-width: $mobile) {
+    width: 100%;
+    margin: 0;
     padding: 0 20px;
   }
 }

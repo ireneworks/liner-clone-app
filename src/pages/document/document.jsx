@@ -3,31 +3,37 @@ import "./document.scss";
 import defaultFaviconIconPath from "../searchResultList/assests/default-favicon.svg";
 import { useParams } from "react-router-dom";
 import blingIconPath from "../../components/assets/icons/bling.svg";
-import fetchDocumentApi from "../../api/document/documentApi";
-import { isSuccess } from "../../utilities/httpValidation";
 import { isEmpty } from "../../utilities/typeGuard";
 import ArticleTop from "./components/articleTop/articleTop";
-import QuickMenu from "../../components/aside/aside";
+import { documentPageApi } from "../../api/documentPageApi";
+import TrendKeywords from "../../components/aside/trendKeywords/trendKeywords";
+import RecommendArticles from "./components/recommendArticles/recommendArticles";
 
 export default function Document() {
+  const { documentId } = useParams();
   const query = useParams();
-  const [article, setArticle] = useState({});
-  // const [hostname] = article.url.match(/https?:\/\/[^\/$\s]+/gi);
+  const [article, setArticle] = useState(null);
+  const [keywords, setKeywords] = useState([]);
+  const [recommendArticles, setRecommendArticles] = useState(null);
 
   useEffect(() => {
     (async function () {
-      try {
-        const response = await fetchDocumentApi(query);
-        if (!isSuccess(response)) {
-          alert("잠시 후 다시 시도해주세요");
-          return;
-        }
-        setArticle(response.data);
-      } catch (e) {}
+      const response = await documentPageApi({
+        query,
+        documentId,
+      });
+      if (!response.success) {
+        alert(response.message);
+        return;
+      }
+
+      setArticle(response.data.document);
+      setKeywords(response.data.keywords.items);
+      setRecommendArticles(response.data.recommendArticles);
     })();
   }, [query]);
 
-  return (
+  return article ? (
     <>
       <div className="main-content-wrapper">
         <ArticleTop />
@@ -56,36 +62,40 @@ export default function Document() {
           <section className="detail-description">
             <div>
               {!isEmpty(article.phrases) && (
-                <div>
+                <div className="highlight-section">
                   <img alt="Popular Highlights" src={blingIconPath} />
                   <span>Popular Highlights</span>
                 </div>
               )}
-              {/*{!isEmpty(article.phrases) &&*/}
-              {/*  article.phrases.map((phrase, index) => (*/}
-              {/*    <p key={index}>{phrase.text}</p>*/}
-              {/*  ))}*/}
+              <div className="highlight-text-wrapper">
+                {!isEmpty(article.phrases) &&
+                  article.phrases.map((phrase, index) => (
+                    <div key={index}>
+                      <p>{phrase.text}</p>
+                    </div>
+                  ))}
+              </div>
             </div>
             <a href={article.url} target="_blank" rel="noreferrer">
               View Original
             </a>
-            <section>
+            <section className="information">
               {article.description && (
                 <div>
-                  <p>Description</p>
+                  <strong>Description</strong>
                   <p>{article.description}</p>
                 </div>
               )}
 
               {article.author && (
                 <div>
-                  <p>Authors</p>
+                  <strong>Authors</strong>
                   <p>{article.author}</p>
                 </div>
               )}
               {article.country && (
                 <div>
-                  <p>Country</p>
+                  <strong>Country</strong>
                   <p>{article.country}</p>
                 </div>
               )}
@@ -94,8 +104,11 @@ export default function Document() {
         </article>
       </div>
       <aside className="right-side-wrapper">
-        <QuickMenu />
+        <TrendKeywords keywords={keywords} />
+        {recommendArticles && (
+          <RecommendArticles recommendArticles={recommendArticles} />
+        )}
       </aside>
     </>
-  );
+  ) : null;
 }

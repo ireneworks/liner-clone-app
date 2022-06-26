@@ -1,40 +1,55 @@
 import React, { useEffect, useState } from "react";
-import fetchRecommendArticlesApi from "../../../../api/document/recommendArticlesApi";
-import { isSuccess } from "../../../../utilities/httpValidation";
-import { useParams } from "react-router-dom";
 import { isEmpty } from "../../../../utilities/typeGuard";
+import "./recommendArticles.scss";
+import { generateHostname } from "../../../../utilities/generateHostname";
+import { useNavigate } from "react-router-dom";
 
-export default function RecommendArticles() {
-  const { documentId } = useParams();
-  const [recommendArticles, setRecommendArticles] = useState([]);
+export default function RecommendArticles({ recommendArticles }) {
+  const [shownRecommendArticles, setShownRecommendArticles] = useState([]);
+  const [recommendArticleItemsOrigin, setRecommendArticleItemsOrigin] =
+    useState(recommendArticles.items);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    (async function () {
-      try {
-        const response = await fetchRecommendArticlesApi({
-          document_id: documentId,
-        });
-        if (!isSuccess(response)) {
-          alert("다시 시도해주세요.");
-          return;
-        }
-        setRecommendArticles(response.data);
-      } catch (e) {}
-    })();
-  }, [documentId]);
+    if (recommendArticles.items.length > 0) {
+      const splicedRecommendArticles = recommendArticles.items.slice(0, 7);
+      setShownRecommendArticles(splicedRecommendArticles);
+      setRecommendArticleItemsOrigin(recommendArticles.items.slice(7));
+    }
+  }, [recommendArticles]);
 
-  //TODO URL CUTOFF
-  //TODO INITIAL 7 DOCS, BUTTON ONCLICK ADD 7 DOCS
+  const onLoadMore = () => {
+    setShownRecommendArticles((shownRecommendArticles) =>
+      shownRecommendArticles.concat(recommendArticleItemsOrigin.slice(0, 5))
+    );
+    setRecommendArticleItemsOrigin(recommendArticleItemsOrigin.slice(5));
+  };
 
   return (
-    <>
-      {!isEmpty(recommendArticles) &&
-        recommendArticles.items.map((article, index) => (
+    <div className="recommend-articles-wrapper">
+      <h2>People Also Read</h2>
+      {!isEmpty(shownRecommendArticles) &&
+        shownRecommendArticles.map((article, index) => (
           <div key={index}>
-            <h4>{article.title}</h4>
-            <p>{article.url}</p>
+            <h4
+              onClick={() =>
+                navigate(
+                  `/trusted-search/highlight/en/${article.document_id}/${article.title}`
+                )
+              }
+            >
+              {article.title}
+            </h4>
+            <a href={article.url} target="_blank" rel="noreferrer">
+              {generateHostname(article.url)}
+            </a>
           </div>
         ))}
-    </>
+      {recommendArticleItemsOrigin.length > 0 && (
+        <button onClick={onLoadMore} className="show-more-button" type="button">
+          Show more
+        </button>
+      )}
+    </div>
   );
 }

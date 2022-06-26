@@ -1,0 +1,41 @@
+@import "src/styles/colors";
+
+.tooltip-button-wrapper {
+  width: 32px;
+  height: 32px;
+  margin: 0 4px 0 0;
+  padding: 0;
+  position: relative;
+  background: none;
+  border: none;
+  span {
+    display: none;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin: 0;
+    padding: 2px 4px;
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+      sans-serif;
+    background-color: $gray600;
+    color: $white;
+    font-size: 11px;
+    line-height: normal;
+    letter-spacing: normal;
+    font-weight: 400;
+    word-break: keep-all;
+    flex-wrap: nowrap;
+    z-index: 12;
+  }
+  &:hover {
+    background: $gray300;
+    border-radius: 23px;
+    span {
+      display: block;
+    }
+  }
+}
