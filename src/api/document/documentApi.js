@@ -1,4 +1,4 @@
-import request from "./config/config";
+import request from "../config/config";
 
 export default function fetchDocumentApi({ documentId }) {
   return request.get(`/document/${documentId}`, {

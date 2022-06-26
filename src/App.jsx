@@ -12,23 +12,21 @@ function App() {
   };
 
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout onSearch={onSearchHandler} />}>
-          <Route path="/" element={<SearchResultList />} />
-          <Route path="/trusted-search/en/" element={<SearchResultList />} />
-          <Route
-            path="/trusted-search/en/:searchQuery"
-            element={<SearchResultList />}
-          />
-          <Route
-            path="/trusted-search/highlight/en/:documentId/:documentTitle"
-            element={<Document />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout onSearch={onSearchHandler} />}>
+        <Route path="/" element={<SearchResultList />} />
+        <Route path="/trusted-search/en/" element={<SearchResultList />} />
+        <Route
+          path="/trusted-search/en/:searchQuery"
+          element={<SearchResultList />}
+        />
+        <Route
+          path="/trusted-search/highlight/en/:documentId/:documentTitle"
+          element={<Document />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

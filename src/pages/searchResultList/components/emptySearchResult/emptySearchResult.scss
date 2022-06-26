@@ -1,0 +1,19 @@
+@import "/src/styles/colors";
+
+.search-no-result-container {
+  width: 680px;
+  margin: 80px auto;
+  p {
+    font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    font-size: 16px;
+    letter-spacing: -0.4px;
+    color: $gray500;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}

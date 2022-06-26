@@ -1,0 +1,29 @@
+@import "src/styles/colors";
+
+.article-top {
+  display: flex;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  .back-button {
+    position: relative;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    background-position: 50%;
+    background-size: 24px 24px;
+    background-color: $white;
+    background-image: url(../../../../../src/components/assets/icons/back-btn.svg);
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .back-button:hover {
+    background-color: $gray300;
+  }
+}

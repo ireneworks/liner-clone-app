@@ -4,7 +4,7 @@ import { isEmpty } from "../../../utilities/typeGuard";
 import { useParams } from "react-router-dom";
 import logoPath from "../../assets/liner-logo.svg";
 import searchIconPath from "../../assets/icons/search-finder-btn.svg";
-import { encodedString } from "../../../utilities/convertURI";
+import { decodedString, encodedString } from "../../../utilities/convertURI";
 import SignInModal from "./signInUpModal/signInModal/signInModal";
 import SignUpModal from "./signInUpModal/signUpModal/signUpModal";
 
@@ -41,9 +41,8 @@ export default function Header({ onSearch }) {
   };
 
   useEffect(() => {
-    if (searchQuery && !isEmpty(searchKeyword)) {
-      const decodedString = decodeURIComponent(searchQuery);
-      setSearchKeyword(decodedString.replaceAll("-", " "));
+    if (!!searchQuery && !isEmpty(searchKeyword)) {
+      setSearchKeyword(decodedString(searchQuery));
     }
   }, [searchQuery]);
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./aside.scss";
 import { Link, useParams } from "react-router-dom";
-import { isSuccess } from "../../../utilities/httpValidation";
-import { encodedString } from "../../../utilities/convertURI";
-import fetchTrendKeywordApi from "../../../api/trendKeywordApi";
-import { isEmpty } from "../../../utilities/typeGuard";
+import { isSuccess } from "../../utilities/httpValidation";
+import { encodedString } from "../../utilities/convertURI";
+import fetchTrendKeywordApi from "../../api/trendKeywordApi";
+import { isEmpty } from "../../utilities/typeGuard";
 
 export default function QuickMenu() {
   const { searchQuery } = useParams();

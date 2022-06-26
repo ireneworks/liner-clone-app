@@ -1,8 +1,10 @@
 @import "src/styles/colors";
+@import "src/styles/device";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 .header-wrapper {
   display: flex;
+  box-sizing: border-box;
   width: 100%;
   height: 64px;
   margin: 0;
@@ -87,12 +89,7 @@
   .button-wrapper:last-of-type {
     margin-left: auto;
   }
-}
-
-/* Tablet Device */
-@media screen and (min-width: 1040px) and (max-width: 1439px) {
-  .header-wrapper {
-    padding: 0;
+  @media screen and (max-width: $tablet) {
     .logo {
       margin: 0 40px 0 0;
     }
@@ -102,15 +99,17 @@
       }
     }
   }
+  @media only screen and (max-width: $mobile) {
+    height: 48px;
+    .logo {
+      width: 84px;
+      height: 16px;
+    }
+    .text-input-field-wrapper {
+      display: none;
+    }
+  }
 }
-
-/* Mobile Device */
-//@media all and (max-width: 719px) {
-//  /* Mobile 스타일 추가 */
-//  #header .search-form {
-//    display: none;
-//  }
-//}
 
 .header-background-dim {
   position: absolute;

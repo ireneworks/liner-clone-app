@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import defaultThumbnailImagePath from "../assests/default-thumb-0.svg";
-import defaultFaviconIconPath from "../assests/default-favicon.svg";
-import { encodedString } from "../../../utilities/convertURI";
+import defaultThumbnailImagePath from "../../assests/default-thumb-0.svg";
+import defaultFaviconIconPath from "../../assests/default-favicon.svg";
+import { encodedString } from "../../../../utilities/convertURI";
 import "./searchResultItem.scss";
 
 export default function SearchResultItem({
