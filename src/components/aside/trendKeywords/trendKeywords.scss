@@ -1,15 +1,13 @@
 @import "src/styles/colors";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&wght@500&display=swap");
+@import "src/styles/device";
 
 .trend-keyword-wrapper {
   box-sizing: border-box;
-  width: 100%;
+  width: 320px;
   padding: 16px 20px;
   margin: 0 0 16px;
   background-color: $gray300;
   border-radius: 8px;
-  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
   h2 {
     margin: 0;
     padding: 0 0 8px;
@@ -29,15 +27,13 @@
     p {
       text-align: center;
       margin: 40px auto;
-      font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-        sans-serif;
       font-weight: 400;
       font-stretch: normal;
       font-style: normal;
       line-height: 1.43;
       font-size: 14px;
       letter-spacing: -0.35px;
-      color: #969aa2;
+      color: $gray500;
     }
     a {
       margin: 16px 0 0;
@@ -55,5 +51,8 @@
       border-radius: 8px;
       color: $cyan800;
     }
+  }
+  @media only screen and (max-width: $narrow_pc) {
+    width: 280px;
   }
 }

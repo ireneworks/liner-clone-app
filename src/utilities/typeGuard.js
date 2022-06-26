@@ -1,5 +1,5 @@
 export function isEmpty(target) {
-  if (target === typeof String) {
+  if (typeof target === "string") {
     return target.length === 0;
   }
   if (Array.isArray(target)) {
