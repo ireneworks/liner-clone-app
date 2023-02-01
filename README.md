@@ -1,7 +1,7 @@
-# Liner Homework
+# Liner 과제
 
-## How to run
-1. 의존성 설치 하기
+## 실행방법
+1. 의존성 설치하기
 
 ```bash
 $ npm install 
@@ -13,7 +13,7 @@ $ npm install
 $ npm start 
 ```
 
-## Project file structure
+## 프로젝트 파일구조
 
 ```
 ┌── src    
@@ -29,7 +29,7 @@ $ npm start
 │   └── utilities             (비즈니스 로직과는 상관없는 유틸성의 함수들 집합)
 ```
 
-## Focused On
+## 집중했던 부분
 ### 관심사의 분리
 디렉터리에서부터 함수까지 관심사를 분리하여 하나의 함수 혹은 컴포넌트가 많은 역할을 하지 않도록 하고자했다.
 
